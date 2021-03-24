@@ -3,7 +3,7 @@ import os.path
 import os
 
 
-def git_clone(url, nomeRepo):
-    path = os.getcwd() + '/repositorios/' + nomeRepo
-    Repo.clone_from(url, path)
+def git_clone(repo):
+    path = os.getcwd() + '/repositorios/' + repo['name']
+    Repo.clone_from(repo['url'], path)
     return path

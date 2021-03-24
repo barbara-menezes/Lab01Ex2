@@ -17,12 +17,12 @@ def executar_query_github(query):
 
 headers = {
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer 9ec6a7dcbe5daab741c35c0e7b375ffefcf04681'
+    'Authorization': 'Bearer 37c8b0b4a04cb51f9180f5cf58ca5d45013dcb4d'
 }
 
 query = """
 query LabTwo {
-  search(query: "language:java,stars:>100", type: REPOSITORY, first: 10 {endCursorCode}) {
+  search(query: "language:java and stars:>100 and is:public", type: REPOSITORY, first: 10 {endCursorCode}) {
     pageInfo {
       hasNextPage
       endCursor
