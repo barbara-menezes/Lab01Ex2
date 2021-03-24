@@ -2,7 +2,6 @@ from git import Repo, RemoteProgress
 from csv import writer
 from datetime import date, datetime
 import requests
-import os.path
 import time
 import json
 import os

@@ -1,7 +1,4 @@
 from git import Repo, RemoteProgress
-from csv import writer
-import calculaMetrics
-import datetime
 import os.path
 import os
 
