@@ -17,12 +17,12 @@ def executar_query_github(query):
 
 headers = {
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer 19f63a88a6ace5a2102b107cdea7a37da7e6311a'
+    'Authorization': 'Bearer d18243107692cb1101066f06ec48a628e7776dd3'
 }
 
 query = """
 query LabTwo {
-  search(query: "language:java,stars:>100, is:public", type: REPOSITORY, first: 10 {endCursorCode}) {
+  search(query: "language:java,stars:>100,is:public", type: REPOSITORY, first: 10 {endCursorCode}) {
     pageInfo {
       hasNextPage
       endCursor
@@ -61,7 +61,7 @@ def get_repos():
   return todos_resultados
 
 def formata_query(end_cursor):
-  queryVar = query.replace("{endCursorCode}", "") if end_cursor == "" else query.replace("{endCursorCode}", ', after: "%s"' % end_cursor)
+  queryVar = query.replace("{endCursorCode}", ', after: "Y3Vyc29yOjQ5MA=="') if end_cursor == "" else query.replace("{endCursorCode}", ', after: "%s"' % end_cursor)
   response = executar_query_github(queryVar)
   formatar_datas(response)
   return response["data"]["search"]["pageInfo"]["endCursor"], response["data"]["search"]["nodes"]
