@@ -17,12 +17,12 @@ def executar_query_github(query):
 
 headers = {
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer 37c8b0b4a04cb51f9180f5cf58ca5d45013dcb4d'
+    'Authorization': 'Bearer 19f63a88a6ace5a2102b107cdea7a37da7e6311a'
 }
 
 query = """
 query LabTwo {
-  search(query: "language:java and stars:>100 and is:public", type: REPOSITORY, first: 10 {endCursorCode}) {
+  search(query: "language:java,stars:>100, is:public", type: REPOSITORY, first: 10 {endCursorCode}) {
     pageInfo {
       hasNextPage
       endCursor
@@ -54,7 +54,7 @@ def formatar_datas(response):
 def get_repos():
   todos_resultados = []
   end_cursor = ''
-  for i in range(1):
+  for i in range(100):
     cursor, resultados = formata_query(end_cursor)
     end_cursor = cursor
     todos_resultados += resultados
